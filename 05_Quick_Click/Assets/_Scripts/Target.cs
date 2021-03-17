@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    [SerializeField, Range(10, 20)]
-    private float minForce, maxForce;
-    [SerializeField, Range(-10, 10)]
-    private float minTorque, maxTorque;
-    [SerializeField, Range(-5, 4)]
-    private float minPosition, maxPosition, ySpawnPos;
+    //[SerializeField, Range(10, 20)]
+    private float minForce = 12, maxForce = 17;
+    //[SerializeField, Range(-10, 10)]
+    private float minTorque = -10, maxTorque = 10;
+    //[SerializeField, Range(-5, 4)]
+    private float minPosition = -4, maxPosition = 4, ySpawnPos = -5;
     private Rigidbody _rb;
     // Start is called before the first frame update
     void Start()
@@ -20,11 +20,19 @@ public class Target : MonoBehaviour
         transform.position = RandomSpawnPosition();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        Destroy(gameObject);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("KillZone"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     /// <summary>
     /// Generates a random Vector3 with up direction
     /// </summary>
