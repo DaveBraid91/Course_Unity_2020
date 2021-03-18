@@ -20,7 +20,8 @@ public class Target : MonoBehaviour
         transform.position = RandomSpawnPosition();
     }
 
-    private void OnMouseDown()
+    
+    private void OnMouseEnter()
     {
         Destroy(gameObject);
     }
