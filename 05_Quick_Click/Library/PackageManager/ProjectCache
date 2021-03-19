@@ -5,21 +5,72 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637515121380000000
-    m_Hash: 3112565009
+      ticks: 637517928240000000
+    m_Hash: 2749529930
   m_LockFileStatus:
     m_FilePath: G:/Unity_Projects/Curso_Unity_2020/Course_Unity_2020/05_Quick_Click/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637515121380000000
-    m_Hash: 1489757210
+      ticks: 637517928240000000
+    m_Hash: 4169330163
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
   m_Packages:
     m_ResolvedPackages:
+    - packageId: com.unity.2d.sprite@1.0.0
+      testable: 0
+      isDirectDependency: 1
+      version: 1.0.0
+      source: 2
+      resolvedPath: G:\Unity_Editors\2020.3.0f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite
+      assetPath: Packages/com.unity.2d.sprite
+      name: com.unity.2d.sprite
+      displayName: 2D Sprite
+      author:
+        name: 
+        email: 
+        url: 
+      category: 2D
+      type: 
+      description: Use Unity Sprite Editor Window to create and edit Sprite asset
+        properties like pivot, borders and Physics shape
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 1.0.0
+        compatible:
+        - 1.0.0
+        verified: 1.0.0
+      dependencies: []
+      resolvedDependencies: []
+      keywords:
+      - 2d
+      - sprite
+      - sprite editor window
+      registry:
+        id: 
+        name: 
+        url: 
+        scopes: []
+        isDefault: 0
+        capabilities: 0
+      hasRegistry: 0
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 0
+      documentationUrl: 
+      hasRepository: 0
+      repository:
+        type: 
+        url: 
+        revision: 
+        path: 
     - packageId: com.unity.analytics@3.5.3
       testable: 0
       isDirectDependency: 1
@@ -810,6 +861,7 @@ m_PackageAssets:
         - 1.4.4
         - 1.4.5
         - 1.4.6
+        - 1.4.7
         - 1.5.0-pre.2
         - 1.5.0-preview.1
         - 1.5.0-preview.2
@@ -825,6 +877,7 @@ m_PackageAssets:
         - 1.6.0-pre.3
         compatible:
         - 1.4.6
+        - 1.4.7
         - 1.5.0-pre.2
         - 1.5.0-preview.1
         - 1.5.0-preview.2
@@ -838,7 +891,7 @@ m_PackageAssets:
         - 1.5.4
         - 1.6.0-pre.1
         - 1.6.0-pre.3
-        verified: 1.4.6
+        verified: 1.4.7
       dependencies:
       - name: com.unity.modules.director
         version: 1.0.0

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2011151771240143863}
   m_Layer: 6
   m_Name: Good_03
-  m_TagString: Untagged
+  m_TagString: Good
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,10 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171e279986c248d4eab00726e7ccf5a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 0
-  maxForce: 0
-  minTorque: 0
-  maxTorque: 0
-  minPosition: 0
-  maxPosition: 0
-  ySpawnPos: 0
+  explosionParticles: {fileID: 5112437202714306363, guid: 7b4191607aae74c0ab244a8d6e48adbf,
+    type: 3}
+  scoreValue: 2

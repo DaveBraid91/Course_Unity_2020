@@ -4,32 +4,52 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    public ParticleSystem explosionParticles;
     //[SerializeField, Range(10, 20)]
     private float minForce = 12, maxForce = 17;
     //[SerializeField, Range(-10, 10)]
     private float minTorque = -10, maxTorque = 10;
     //[SerializeField, Range(-5, 4)]
     private float minPosition = -4, maxPosition = 4, ySpawnPos = -5;
+    [SerializeField, Range(-100, 100)]
+    private int scoreValue;
     private Rigidbody _rb;
+    private GameManager _gameManager;
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _rb.AddForce(RandomForce(), ForceMode.Impulse);
         _rb.AddTorque(RandomTorque());
+        _gameManager = FindObjectOfType<GameManager>();
         transform.position = RandomSpawnPosition();
     }
 
     
     private void OnMouseEnter()
     {
-        Destroy(gameObject);
+        if(_gameManager.gameState == GameManager.GameState.inGame)
+        {
+            _gameManager.UpdateScore(scoreValue);
+            Destroy(gameObject);
+            Instantiate(explosionParticles, transform.position, explosionParticles.transform.rotation);
+        }
+        
+        /*if (gameObject.CompareTag("Bad"))
+        {
+            _gameManager.GameOver();
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("KillZone"))
         {
+            if(gameObject.CompareTag("Good"))
+            {
+                //_gameManager.UpdateScore(-scoreValue);
+                _gameManager.GameOver();
+            }            
             Destroy(gameObject);
         }
     }
