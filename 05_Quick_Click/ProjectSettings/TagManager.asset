@@ -4,9 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - KillZone
-  - Good
   - Bad
+  - Good
   layers:
   - Default
   - TransparentFX
@@ -14,10 +13,10 @@ TagManager:
   - 
   - Water
   - UI
-  - Targets
+  - 
   - 
   - PostProcessing
-  - 
+  - Target
   - 
   - 
   - 
