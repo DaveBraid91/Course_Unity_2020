@@ -7,12 +7,13 @@ public class GameEnding : MonoBehaviour
 {
     [SerializeField]
     private float fadeDuration, timer, displayImageDuration;
-    private bool isPlayerAtExit, isPlayerCaught;
+    private bool isPlayerAtExit, isPlayerCaught, hasAudioPlayed;
     [SerializeField]
     private GameObject player;
 
     public CanvasGroup exitBackgroundImageCanvasGroup;
     public CanvasGroup caughtBackgroundImageCanvasGroup;
+    public AudioSource exitAS, caughtAS;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -31,19 +32,24 @@ public class GameEnding : MonoBehaviour
     {
         if(isPlayerAtExit)
         {
-            EndLevel(exitBackgroundImageCanvasGroup);
+            EndLevel(exitBackgroundImageCanvasGroup, exitAS);
         }
         else if(isPlayerCaught)
         {
-            EndLevel(caughtBackgroundImageCanvasGroup, true);
+            EndLevel(caughtBackgroundImageCanvasGroup, caughtAS, true);
         }
     }
     /// <summary>
     /// Shows the end game screen
     /// </summary>
     /// <param name="canvasToShow">The screen it shows, depending on how the game ended</param>
-    void EndLevel(CanvasGroup canvasToShow, bool doRestart = false)
+    void EndLevel(CanvasGroup canvasToShow, AudioSource audioSource, bool doRestart = false)
     {
+        if(!hasAudioPlayed)
+        {
+            audioSource.Play();
+            hasAudioPlayed = true;
+        }
         timer += Time.deltaTime;
         canvasToShow.alpha = Mathf.Clamp(timer / fadeDuration, 0, 1);
 

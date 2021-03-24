@@ -10,11 +10,14 @@ public class PlayerController : MonoBehaviour
     private Quaternion rotation = Quaternion.identity;
     private Animator _animator;
     private Rigidbody _rigidBody;
+    [SerializeField]
+    private AudioSource _audioSource;
     // Start is called before the first frame update
     void Start()
     {
         _animator = GetComponent<Animator>();
         _rigidBody = GetComponent<Rigidbody>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,6 +34,18 @@ public class PlayerController : MonoBehaviour
         bool isWalking = hasHorizontalInput || hasVerticalInput;
 
         _animator.SetBool("IsWalking", isWalking);
+
+        if(isWalking)
+        {
+            if(!_audioSource.isPlaying)
+            {
+                _audioSource.Play();
+            }
+        }
+        else
+        {
+            _audioSource.Stop();
+        }
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, movement, turnSpeed * Time.fixedDeltaTime, 0);
         rotation = Quaternion.LookRotation(desiredForward);
