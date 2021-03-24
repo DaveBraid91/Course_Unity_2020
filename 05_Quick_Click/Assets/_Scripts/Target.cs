@@ -18,6 +18,8 @@ public class Target : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        minPosition = Camera.main.ScreenToWorldPoint(Vector3.zero).x + 1;
+        maxPosition = Camera.main.ScreenToWorldPoint(Vector3.right * Camera.main.pixelWidth).x - 1;
         _rb = GetComponent<Rigidbody>();
         _rb.AddForce(RandomForce(), ForceMode.Impulse);
         _rb.AddTorque(RandomTorque());
